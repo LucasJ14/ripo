@@ -4,9 +4,7 @@ language: php
 
 php:
 
-   - 5.4
-
-   - 5.5
+   - 7.0
 
 
 
@@ -18,4 +16,10 @@ before_script:
 
 
 
-script: phpunit --coverage.text
+script:
+
+       - phpunit --coverage-text
+
+       - bin/phpunit --group integration
+
+       - bin/security-checker security:check composer.lock
